@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 public class WebDriverUtilities 
 {
 	
+	
+	
    public void RightClick(WebDriver driver , WebElement target)
    {
 	   Actions a = new Actions(driver);
@@ -56,5 +58,6 @@ public class WebDriverUtilities
 	   js.executeScript("arguments[0].scrollIntoView();", ele);
    }
    
+
    
 }

@@ -1,5 +1,10 @@
 import static org.testng.Assert.assertEquals;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import GenericLibrary.BaseClass;
@@ -30,6 +35,7 @@ public class VerifyMovieDetails extends BaseClass {
 			String ImdbPage=p.getData("imdb_url");
 			driver.get(ImdbPage);
 			
+			
 			//Search the movie name into searchbox
 			imdb.SearchOnImdb(MovieName);
 			imdb.ClickOnMovieLink(MovieName);
@@ -42,7 +48,10 @@ public class VerifyMovieDetails extends BaseClass {
 			System.out.println("IMDB:: Country Of Origin of Movie:"+MovieName+" is :"+IMDB_Country);
 			
 			//Wait until the Element is clickable and Click on realease date link
-			imdb.getReleaseDate().click();
+			WebElement Tab_relaeaseDate = imdb.getReleaseDate();
+			WebDriverWait wait = new WebDriverWait(driver, 30);
+			wait.until(ExpectedConditions.visibilityOf(Tab_relaeaseDate));
+			Tab_relaeaseDate.click();
 			
 			//Creating the Object for Release date infor page 
 			IMDBMovieReleaseDateInfo releaseDateInfo = new IMDBMovieReleaseDateInfo(driver);
