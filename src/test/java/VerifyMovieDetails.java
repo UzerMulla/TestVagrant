@@ -48,10 +48,9 @@ public class VerifyMovieDetails extends BaseClass {
 			System.out.println("IMDB:: Country Of Origin of Movie:"+MovieName+" is :"+IMDB_Country);
 			
 			//Wait until the Element is clickable and Click on realease date link
-			WebElement Tab_relaeaseDate = imdb.getReleaseDate();
-			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.visibilityOf(Tab_relaeaseDate));
-			Tab_relaeaseDate.click();
+			WebElement Tab_releaseDate = imdb.getReleaseDate();
+			Thread.sleep(5000);
+			Tab_releaseDate.click();
 			
 			//Creating the Object for Release date infor page 
 			IMDBMovieReleaseDateInfo releaseDateInfo = new IMDBMovieReleaseDateInfo(driver);
